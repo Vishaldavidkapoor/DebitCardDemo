@@ -35,7 +35,7 @@ export default function DebitLimitScreen({navigation}) {
             <View style={styles.container2}>
               <View style={styles.container3}>
                   <Image  style={styles.image3} 
-                source={require('../../../assets/Logo/Logo.png')}/>
+                source={require('../../../assets/Meter/Meter.png')}/>
                 <Text style={styles.text}>Set a weekly debit card spending limit</Text></View>
                 <View style={styles.container4}>
                     <Text style={styles.dollar}>S$</Text></View>
