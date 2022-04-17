@@ -12,7 +12,7 @@ export default function BottomNav(){
          {
              navOptions.map((item,i)=>{
                  return(<View><TouchableOpacity 
-                 onPress={()=>alert('DebitLimitScreen')} style={{alignItems:'center'}}>
+                 onPress={()=>alert('Pressed')} style={{alignItems:'center'}}>
                       <Image source={i==0? require('../../../assets/NavIcons/Home.png'): 
                  i==1?
                  require('../../../assets/NavIcons/pay.png'):i==2?

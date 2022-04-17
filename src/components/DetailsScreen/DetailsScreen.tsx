@@ -40,7 +40,7 @@ export default function DetailsScreen({navigation}) {
     }
 
     return(
-        <ScrollView style={styles.container}>
+        <ScrollView style={{...styles.container,marginBottom:90}}>
            
             <View style={{height:140}}>
 
@@ -48,7 +48,7 @@ export default function DetailsScreen({navigation}) {
          { options.map((u,i)=> {
              return (
                 <View style={{flexDirection:'column'}} >
-                <TouchableOpacity onPress={()=>navigation.push('DebitLimitScreen')}>
+                <TouchableOpacity onPress={()=>i==1&& navigation.push('DebitLimitScreen')}>
                 <Image  style={styles.image}
                  source={i==0? require('../../../assets/insight/insight.png'): 
                  i==1?

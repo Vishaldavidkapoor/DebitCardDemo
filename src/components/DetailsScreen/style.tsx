@@ -6,7 +6,7 @@ const screenHeight= Dimensions.get('window').height;
 export const styles= StyleSheet.create({
     container:{
         top:90,
-         backgroundColor:'white',borderTopLeftRadius:30,borderTopRightRadius:30
+         backgroundColor:'white',borderTopLeftRadius:30,borderTopRightRadius:30,
     },
     image:{
         height:30, width:30,left:15,top:30
@@ -17,5 +17,5 @@ export const styles= StyleSheet.create({
     switch:{
         left:360,top:35,position:'absolute'
     },
-    
+
 })
