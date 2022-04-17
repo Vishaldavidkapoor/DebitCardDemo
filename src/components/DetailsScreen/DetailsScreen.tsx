@@ -1,10 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{useState,useEffect} from 'react';
 import { Switch,Text, View,Dimensions,Image, ScrollView, TouchableOpacity } from 'react-native';
+import { styles } from './style';
 
-
-const screenWidth= Dimensions.get('window').width;
-const screenHeight= Dimensions.get('window').height;
 const options = [
     {
        title: 'Top-up acoount',
@@ -42,8 +40,7 @@ export default function DetailsScreen({navigation}) {
     }
 
     return(
-        <ScrollView style={{top:90,
-         backgroundColor:'white',borderTopLeftRadius:30,borderTopRightRadius:30}}>
+        <ScrollView style={styles.container}>
            
             <View style={{height:140}}>
 
@@ -52,7 +49,7 @@ export default function DetailsScreen({navigation}) {
              return (
                 <View style={{flexDirection:'column'}} >
                 <TouchableOpacity onPress={()=>navigation.push('DebitLimitScreen')}>
-                <Image  style={{height:30, width:30,left:15,top:30}}
+                <Image  style={styles.image}
                  source={i==0? require('../../../assets/insight/insight.png'): 
                  i==1?
                   require('../../../assets/Transfer/Transfer.png'):i==2?
@@ -60,14 +57,14 @@ export default function DetailsScreen({navigation}) {
                    require('../../../assets/Block/Transfer.png'):
                    require('../../../assets/NewCard/Transfer.png')} />
             <Text style={{left:55}}>{u.title}</Text>
-            <Text style={{left:55, color:'grey'}}>{u.detail}</Text>
+            <Text style={styles.text}>{u.detail}</Text>
             {u.toggle &&
                   <Switch
                   trackColor={{ false: "#767577", true: "#01D167" }}
                   thumbColor={ "#f4f3f4"}
                   onValueChange={ toggleSwitch}
                   value={isEnabled}
-                  style={{left:360,top:35,position:'absolute'}}
+                  style={styles.switch}
                 />
             }
             </TouchableOpacity>

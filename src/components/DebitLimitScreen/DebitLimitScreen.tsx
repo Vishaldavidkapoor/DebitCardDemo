@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import {Text, View,Dimensions,TouchableOpacity,Image,TextInput } from 'react-native';
+import { styles } from './style';
 
 
 const screenWidth= Dimensions.get('window').width;
@@ -24,48 +25,35 @@ export default function DebitLimitScreen({navigation}) {
 
 
     return(
-        <View style={{flex:1,backgroundColor:'#0C365A'}}>
+        <View style={styles.container}>
             <TouchableOpacity onPress={()=>navigation.goBack()}  >
-                <Image style={{height:20,width:20,left:20,marginTop:30}} 
+                <Image style={styles.image} 
                 source={require('../../../assets/back/back.png')}/>
             </TouchableOpacity>
-            <Image style={{height:25,width:25, left:360,top:-25}} source={require('../../../assets/Logo/Logo.png')} />
-            <Text style={{left:20,top:50,color:'white',fontSize:25,fontWeight:'bold'}}>Spending limit</Text>
-            <View style={{top:90, flexDirection:'column',
-            backgroundColor:'white',height:'90%',borderTopLeftRadius:30,borderTopRightRadius:30}}>
-              <View style={{flexDirection:'row', left:20,top:20}}>
-                  <Image  style={{height:20,width:20,}} 
+            <Image style={styles.image2} source={require('../../../assets/Logo/Logo.png')} />
+            <Text style={styles.spendLim}>Spending limit</Text>
+            <View style={styles.container2}>
+              <View style={styles.container3}>
+                  <Image  style={styles.image3} 
                 source={require('../../../assets/Logo/Logo.png')}/>
-                <Text style={{left:10,fontWeight:'bold'}}>Set a weekly debit card spending limit</Text></View>
-                <View style={{height:25,width:40,backgroundColor:'#20D167',
-            top:50,left:20,alignItems:'center'}}>
-                    <Text style={{fontSize:15,color:'white',fontWeight:'bold'}}>S$</Text></View>
+                <Text style={styles.text}>Set a weekly debit card spending limit</Text></View>
+                <View style={styles.container4}>
+                    <Text style={styles.dollar}>S$</Text></View>
                     <TextInput
-        style={{ height: 40,
-            // margin: 12,
-            // borderWidth: 1,
-            paddingLeft:50,
-            fontSize:20,
-            fontWeight:'bold',
-            marginHorizontal:20,
-            borderBottomWidth: 1,
-            borderColor:'#E5E5E5',
-            padding: 10,
-             top:20}}
+        style={styles.input}
         onChangeText={(text)=>formatNumber(text)}
         onSubmitEditing={()=>alert(spendLimit)}
          value={spendLimit}
       />
                
-        <Text style={{top:30,left:20,color:'#22222266',}}>Here weekly means the last 7 days - not the calendar week</Text>
-        <View style={{ top:70, flexDirection:"row", justifyContent:'space-around'}}>
+        <Text style={styles.text2}>Here weekly means the last 7 days - not the calendar week</Text>
+        <View style={styles.container5}>
           {
               sampleAmount.map((item)=>{
                   return(
-                      <TouchableOpacity style={{height:40, justifyContent:'center',alignItems:'center', 
-                      backgroundColor:'#e4f5e8', width:100}}
+                      <TouchableOpacity style={styles.touch}
                       onPress={()=>setSpendLimit(item)}>
-                          <Text style={{color:'#20D167',fontSize:15,fontWeight:'bold'}}>S$ {item}</Text>
+                          <Text style={styles.dollar1}>S$ {item}</Text>
                       </TouchableOpacity>
                   )
               })

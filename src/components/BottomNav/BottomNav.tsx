@@ -2,14 +2,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, View,Dimensions,Image, ScrollView, TouchableOpacity } from 'react-native';
-
+import {styles} from './style';
 
 const navOptions=['Home','Debit Card','Payments', 'Credit','Profile'];
 
 export default function BottomNav(){
     return(
-        <View style={{height:65,alignItems:'center', 
-        flexDirection:'row',justifyContent:'space-around',  backgroundColor:'white'}}>
+        <View style={styles.container}>
          {
              navOptions.map((item,i)=>{
                  return(<View><TouchableOpacity 
@@ -20,7 +19,7 @@ export default function BottomNav(){
                  require('../../../assets/NavIcons/Payments.png'): i==3?
                  require('../../../assets/NavIcons/Credit.png'):
                  require('../../../assets/NavIcons/Account.png') }
-                 style={{height:25,width:25}}/>
+                 style={styles.image}/>
                      <Text style={i==1?{color:'#01D167'}:{color:'grey'}}>{item}</Text>
                 </TouchableOpacity></View> 
                  )

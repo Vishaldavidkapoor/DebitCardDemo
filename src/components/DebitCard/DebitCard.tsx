@@ -1,9 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, View, Dimensions,Image, TouchableOpacity} from 'react-native';
+import { styles } from './style';
 
-const screenWidth= Dimensions.get('window').width;
-const screenHeight= Dimensions.get('window').height;
 
 
 const user={
@@ -31,36 +30,25 @@ const handleOnpress=(pressed) =>{
 
 }
     return(
-        <View style={{height:screenHeight*0.32, width:screenWidth*0.85, left:30,
-             top:screenHeight*0.24, 
-        backgroundColor:'#01D167',  position: 'absolute', borderRadius:15,
-        zIndex: 1,}}>
+        <View style={styles.container}>
                 <TouchableOpacity onPress={()=>handleOnpress(pressed)} 
-                style={{backgroundColor:'white', 
-            height:30,left:200, width:150,top:-26, flexDirection:'row',alignItems:'center',
-            justifyContent:'center',borderTopLeftRadius:5,borderTopRightRadius:5}}>
+                style={styles.touchable}>
                 <Image source={!pressed ? require('../../../assets/Eye/eye.png'):
                 require('../../../assets/Eye/eyeOpen.png') }
-            style={{height:20,width:20}}/>
+            style={styles.image}/>
                 <Text style={{color:'#01D167'}}>{!pressed?'Hide':'Show' } card number</Text></TouchableOpacity>
                
             
             <Image source={require('../../../assets/Logo/Logo1.png')}
-             style={{height:20,width:20,left:250,backgroundColor:'white'}}/>
-             <Text style={{
-                    fontSize:20, color:'white',left:275, fontWeight:'bold',top:-20}}>aspire</Text>
-                <Text style={{marginHorizontal:20,
-                    fontSize:25, color:'white', fontWeight:'bold'}}>{user.name}</Text>
-                <Text style={{marginHorizontal:20,
-                    fontSize:20, color:'white',top:10}}>{cardNumber}</Text>
-                    <View style={{flexDirection:'row',top:10, justifyContent:'flex-start'}}
-                    ><Text style={{marginHorizontal:20,marginVertical:10,
-                    fontSize:15, color:'white'}}>Thru: {user.validity}</Text>
-                    <Text style={{marginVertical:10,
-                    fontSize:15, color:'white'}}>CVV: {cvv}</Text></View>
+             style={styles.image2}/>
+             <Text style={styles.logo}>aspire</Text>
+                <Text style={styles.name}>{user.name}</Text>
+                <Text style={styles.cardNum}>{cardNumber}</Text>
+                    <View style={styles.container2}
+                    ><Text style={styles.validity}>Thru: {user.validity}</Text>
+                    <Text style={styles.cvv}>CVV: {cvv}</Text></View>
                     
-                    <Text style={{
-                    fontSize:25,left:270, color:'white',fontWeight:'bold',top:-20}}>VISA</Text>
+                    <Text style={styles.visaLogo}>VISA</Text>
         </View>
     )
 }
